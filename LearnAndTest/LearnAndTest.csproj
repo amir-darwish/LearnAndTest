@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrlCalculator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlCalculator.Designer.cs">
+      <DependentUpon>ctrlCalculator.cs</DependentUpon>
+    </Compile>
     <Compile Include="Delegate\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrlCalculator.resx">
+      <DependentUpon>ctrlCalculator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delegate\deleagteForm.resx">
       <DependentUpon>deleagteForm.cs</DependentUpon>
     </EmbeddedResource>
