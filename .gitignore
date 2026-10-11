@@ -1,0 +1,28 @@
+## Visual Studio / C# .gitignore
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# User-specific files
+*.rsuser
+*.suo
+*.userprefs
+
+# Test results
+TestResults/
+[Tt]est[Rr]esult*/
+
+# Temporary and cache files
+*.tmp
+*.cache
+*.vsidx
