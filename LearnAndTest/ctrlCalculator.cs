@@ -5,18 +5,48 @@ namespace LearnAndTest
 {
     public partial class ctrlCalculator : UserControl
     {
-        // Define an event to notify when the calculation is complete
-        public event Action<double> OnCalculationComplete;
+        // OLD CODE: Using a delegate for the event
+        //// Define an event to notify when the calculation is complete
+        //public event Action<double> OnCalculationComplete;
 
-        // Method to raise the event
-        protected virtual void RaiseCalculationComplete(double result)
+        //// Method to raise the event
+        //protected virtual void RaiseCalculationComplete(double result)
+        //{
+        //    Action<double> handler = OnCalculationComplete;
+        //    if (handler != null)
+        //    {
+        //        handler(result);
+        //    }
+        //}
+
+        // NEW CODE: Using EventHandler<T> for the event
+        public class CalculationEventArgs : EventArgs
         {
-            Action<double> handler = OnCalculationComplete;
-            if (handler != null)
+            public double Val1 { get; }
+            public double Val2 { get; }
+
+            public double Result { get; }
+            public CalculationEventArgs(double val1, double val2, double result)
             {
-                handler(result);
+                Val1 = val1;
+                Val2 = val2;
+                Result = result;
             }
         }
+        public event EventHandler<CalculationEventArgs> OnCalculationComplete;
+
+        public void RaiseCalculationComplete(double val1, double val2, double result)
+        {
+            RaiseCalculationComplete(new CalculationEventArgs(val1, val2, result));
+        }
+
+        protected void RaiseCalculationComplete(CalculationEventArgs e)
+        {
+            OnCalculationComplete?.Invoke(this, e);
+        }
+
+
+
         public ctrlCalculator()
         {
             InitializeComponent();
@@ -35,7 +65,11 @@ namespace LearnAndTest
                 lbResult.Text = result.ToString();
 
                 // Raise the event to notify subscribers that the calculation is complete
-                RaiseCalculationComplete(result);
+                if (OnCalculationComplete != null)
+                {
+                    RaiseCalculationComplete(new CalculationEventArgs(num1, num2, result));
+                }
+
             }
             else
             {

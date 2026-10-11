@@ -9,9 +9,19 @@ namespace LearnAndTest.Events
             InitializeComponent();
         }
 
-        private void ctrlCalculator1_OnCalculationComplete(double obj)
+        private void ctrlCalculator1_OnCalculationComplete(object sender, ctrlCalculator.CalculationEventArgs e)
         {
-            MessageBox.Show($"Calculation complete! Result: {obj}");
+
         }
+
+        private void ctrlCalculator1_OnCalculationComplete_1(object sender, ctrlCalculator.CalculationEventArgs e)
+        {
+            MessageBox.Show($"Calculation complete! Result: {e.Result} and values: val1: {e.Val1}, val2: {e.Val2}");
+        }
+
+        //private void ctrlCalculator1_OnCalculationComplete(double obj)
+        //{
+        //    MessageBox.Show($"Calculation complete! Result: {obj}");
+        //}
     }
 }

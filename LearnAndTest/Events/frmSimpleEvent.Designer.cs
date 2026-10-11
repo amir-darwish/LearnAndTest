@@ -38,7 +38,7 @@
             this.ctrlCalculator1.Name = "ctrlCalculator1";
             this.ctrlCalculator1.Size = new System.Drawing.Size(366, 150);
             this.ctrlCalculator1.TabIndex = 0;
-            this.ctrlCalculator1.OnCalculationComplete += new System.Action<double>(this.ctrlCalculator1_OnCalculationComplete);
+            this.ctrlCalculator1.OnCalculationComplete += new System.EventHandler<LearnAndTest.ctrlCalculator.CalculationEventArgs>(this.ctrlCalculator1_OnCalculationComplete_1);
             // 
             // frmSimpleEvent
             // 
