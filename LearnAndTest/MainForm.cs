@@ -1,3 +1,4 @@
+using LearnAndTest.Events;
 using System;
 using System.Windows.Forms;
 
@@ -14,6 +15,12 @@ namespace LearnAndTest
         {
             deleagteForm form2 = new deleagteForm();
             form2.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+           frmSimpleEvent form3 = new frmSimpleEvent();
+            form3.ShowDialog();
         }
     }
 }
