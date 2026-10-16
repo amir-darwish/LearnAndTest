@@ -64,6 +64,14 @@
     <Compile Include="Events\frmSimpleEvent.Designer.cs">
       <DependentUpon>frmSimpleEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Events\frmTemperatureChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Events\frmTemperatureChange.Designer.cs">
+      <DependentUpon>frmTemperatureChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Events\TemperatureChangedEventArgs.cs" />
+    <Compile Include="Events\Thermostat.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Events\frmSimpleEvent.resx">
       <DependentUpon>frmSimpleEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Events\frmTemperatureChange.resx">
+      <DependentUpon>frmTemperatureChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
