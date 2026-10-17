@@ -1,5 +1,4 @@
-﻿using LearnAndTestCLS.Logger;
-using System;
+﻿using System;
 using System.IO;
 
 namespace LearnAndTestCLS
@@ -67,13 +66,22 @@ namespace LearnAndTestCLS
 
             ////Test Logger
 
-            clsLogger screenLogger = new clsLogger(LogToConsole);
-            clsLogger fileLogger = new clsLogger(LogToFile);
-            clsLogger databaseLogger = new clsLogger(LogToDatabase);
+            //clsLogger screenLogger = new clsLogger(LogToConsole);
+            //clsLogger fileLogger = new clsLogger(LogToFile);
+            //clsLogger databaseLogger = new clsLogger(LogToDatabase);
 
-            screenLogger.Log("This is a log message to the console.");
-            fileLogger.Log("This is a log message to the file.");
-            databaseLogger.Log("This is a log message to the database.");
+            // with action delegate
+            Action<string> logToConsoleAction = LogToConsole;
+            Action<string> logToFileAction = LogToFile;
+            Action<string> logToDatabaseAction = LogToDatabase;
+
+            logToConsoleAction("This is a log message to the console.");
+            logToFileAction("This is a log message to the file.");
+            logToDatabaseAction("This is a log message to the database.");
+
+            //screenLogger.Log("This is a log message to the console.");
+            //fileLogger.Log("This is a log message to the file.");
+            //databaseLogger.Log("This is a log message to the database.");
         }
     }
 }
