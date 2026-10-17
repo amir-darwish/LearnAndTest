@@ -43,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Order\clsEmailService.cs" />
     <Compile Include="Order\clsOrder.cs" />
     <Compile Include="Order\clsOrderEventArgs.cs" />
+    <Compile Include="Order\clsShippingService.cs" />
+    <Compile Include="Order\clsSMSService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher\clsNewsArticle.cs" />
