@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define KOKO
+using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace LearnAndTestCLS
@@ -25,63 +27,28 @@ namespace LearnAndTestCLS
             Console.WriteLine($"Log to Database: {message}");
         }
 
+        [Conditional("KOKO")]
+        static public void testConditionalAttribute(string message)
+        {
+            // This method is marked with the Conditional attribute, so it will only be called if the "DEBUG" symbol is defined.
+            LogToConsole("This log message will only appear in koko builds.");
+        }
+
         static void Main(string[] args)
         {
 
 
-            //clsNewsPublisher publisher = new clsNewsPublisher();
-
-            //clsNewsDisplay display1 = new clsNewsDisplay("Display 1");
-            //clsNewsDisplay display2 = new clsNewsDisplay("Display 2");
-
-            //display1.Subscribe(publisher);
-            //display2.Subscribe(publisher);
-
-            //publisher.PublishNews("Breaking News", "This is the content of the breaking news article.");
-            //publisher.PublishNews("Sports Update", "This is the content of the sports update article.");
-
-            //display1.Unsubscribe(publisher);
-
-            //publisher.PublishNews("Weather Alert", "This is the content of the weather alert article.");
-
-
-            /////Test Order and Notification Services
-
-
-            //clsOrder order = new clsOrder();
-
-            //clsEmailService emailService = new clsEmailService();
-            //clsSMSService smsService = new clsSMSService();
-            //clsShippingService shippingService = new clsShippingService();
-
-            //emailService.Subscribe(order);
-            //smsService.Subscribe(order);
-            //shippingService.Subscribe(order);
-
-            //order.CreateOrder(1, "Product 1", 2, 199, "customer@example.com");
-
-            //shippingService.Unsubscribe(order);
-
-            //order.CreateOrder(2, "Product 2", 1, 299, "customer@linkdin.com");
-
-            ////Test Logger
-
-            //clsLogger screenLogger = new clsLogger(LogToConsole);
-            //clsLogger fileLogger = new clsLogger(LogToFile);
-            //clsLogger databaseLogger = new clsLogger(LogToDatabase);
-
             // with action delegate
-            Action<string> logToConsoleAction = LogToConsole;
-            Action<string> logToFileAction = LogToFile;
-            Action<string> logToDatabaseAction = LogToDatabase;
+            //Action<string> logToConsoleAction = LogToConsole;
+            //Action<string> logToFileAction = LogToFile;
+            //Action<string> logToDatabaseAction = LogToDatabase;
 
-            logToConsoleAction("This is a log message to the console.");
-            logToFileAction("This is a log message to the file.");
-            logToDatabaseAction("This is a log message to the database.");
+            //logToConsoleAction("This is a log message to the console.");
+            //logToFileAction("This is a log message to the file.");
+            //logToDatabaseAction("This is a log message to the database.");
 
-            //screenLogger.Log("This is a log message to the console.");
-            //fileLogger.Log("This is a log message to the file.");
-            //databaseLogger.Log("This is a log message to the database.");
+            // test conditional attribute
+            testConditionalAttribute("This is a log message with conditional attribute.");
         }
     }
 }
