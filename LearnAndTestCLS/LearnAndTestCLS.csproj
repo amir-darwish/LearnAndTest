@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LearnAndTestCLS.ReflectionProgram</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -54,6 +57,8 @@
     <Compile Include="Publisher\clsNewsArticle.cs" />
     <Compile Include="Publisher\clsNewsDisplay.cs" />
     <Compile Include="Publisher\clsNewsPublisher.cs" />
+    <Compile Include="ReflectionsProfram.cs" />
+    <Compile Include="Reflections\BankAccount.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

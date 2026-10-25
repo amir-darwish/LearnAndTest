@@ -2,6 +2,8 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Reflection;
 
 namespace LearnAndTestCLS
 {
@@ -48,7 +50,46 @@ namespace LearnAndTestCLS
             //logToDatabaseAction("This is a log message to the database.");
 
             // test conditional attribute
-            testConditionalAttribute("This is a log message with conditional attribute.");
+            //testConditionalAttribute("This is a log message with conditional attribute.");
+
+            //var i = Activator.CreateInstance(typeof(int));
+            //i = 42; // Assign a value to the created instance
+
+            //Console.WriteLine($"Created instance of int: {i}");
+            //Console.WriteLine($"Type of instance: {i.GetType()}");
+
+            // reflection example
+            //Type type = typeof(string);
+            //Console.WriteLine($"Type of string: {type}");
+            //Console.WriteLine($"Name of string type: {type.Name}");
+            //Console.WriteLine($"Full name of string type: {type.FullName}");
+            //Console.WriteLine($"get inerface length: {type.GetInterfaces().Length}");
+
+            //foreach (var iface in type.GetInterfaces())
+            //{
+            //    Console.WriteLine($"Interface: {iface}");
+            //}
+
+            // reflection example with BankAccount class
+            Assembly mscorlib = typeof(BankAccount).Assembly;
+
+            Type typeBank = mscorlib.GetType("BankAccount").GetType();
+
+            if (typeBank != null)
+            {
+                Console.WriteLine($"Methods public of BankAccount Class :\n\n");
+                var publicMethod = typeBank.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+                    .OrderBy(method => method.Name);
+
+                foreach (var method in publicMethod)
+                {
+                    Console.WriteLine($"name of methods : {method.Name} \n");
+                    Console.WriteLine($"type of methods : {method.ReturnType} \n");
+                }
+
+
+            }
+
         }
     }
 }
