@@ -1,9 +1,8 @@
 ﻿#define KOKO
+using LearnAndTestCLS.Registryy;
 using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Reflection;
 
 namespace LearnAndTestCLS
 {
@@ -71,24 +70,36 @@ namespace LearnAndTestCLS
             //}
 
             // reflection example with BankAccount class
-            Assembly mscorlib = typeof(BankAccount).Assembly;
+            //Assembly mscorlib = typeof(BankAccount).Assembly;
 
-            Type typeBank = mscorlib.GetType("BankAccount").GetType();
+            //Type typeBank = mscorlib.GetType("BankAccount").GetType();
 
-            if (typeBank != null)
+            //if (typeBank != null)
+            //{
+            //    Console.WriteLine($"Methods public of BankAccount Class :\n\n");
+            //    var publicMethod = typeBank.GetMethods(BindingFlags.Public | BindingFlags.Instance)
+            //        .OrderBy(method => method.Name);
+
+            //    foreach (var method in publicMethod)
+            //    {
+            //        Console.WriteLine($"name of methods : {method.Name} \n");
+            //        Console.WriteLine($"type of methods : {method.ReturnType} \n");
+            //    }
+
+
+            //}
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\MyFirstSoftware";
+            string valueName = "YourValueName";
+            string valueData = "YourValueData";
+
+            if (clsRegistry.Write(keyPath, valueName, valueData))
             {
-                Console.WriteLine($"Methods public of BankAccount Class :\n\n");
-                var publicMethod = typeBank.GetMethods(BindingFlags.Public | BindingFlags.Instance)
-                    .OrderBy(method => method.Name);
-
-                foreach (var method in publicMethod)
-                {
-                    Console.WriteLine($"name of methods : {method.Name} \n");
-                    Console.WriteLine($"type of methods : {method.ReturnType} \n");
-                }
-
+                Console.WriteLine("Success !\n\n");
 
             }
+
+            Console.ReadKey();
+
 
         }
     }

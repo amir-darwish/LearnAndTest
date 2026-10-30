@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>LearnAndTestCLS.ReflectionProgram</StartupObject>
+    <StartupObject>LearnAndTestCLS.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -59,6 +59,7 @@
     <Compile Include="Publisher\clsNewsPublisher.cs" />
     <Compile Include="ReflectionsProfram.cs" />
     <Compile Include="Reflections\BankAccount.cs" />
+    <Compile Include="Registry\clsRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
