@@ -23,5 +23,14 @@ namespace LearnAndTestCLS.Registryy
 
 
         }
+
+        static public string Read(string Path, string ValueName) 
+        {
+            try
+            {
+                return Registry.GetValue(Path, ValueName, null) as string;
+            }
+            catch { return null; }
+        }
     }
 }

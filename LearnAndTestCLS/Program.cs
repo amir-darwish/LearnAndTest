@@ -92,10 +92,15 @@ namespace LearnAndTestCLS
             string valueName = "YourValueName";
             string valueData = "YourValueData";
 
-            if (clsRegistry.Write(keyPath, valueName, valueData))
-            {
-                Console.WriteLine("Success !\n\n");
+            //if (clsRegistry.Write(keyPath, valueName, valueData))
+            //{
+            //    Console.WriteLine("Success !\n\n");
 
+            //}
+
+            if (clsRegistry.Read(keyPath, valueName) != null)
+            {
+                Console.WriteLine($"The value of {valueName} is: {valueData}");
             }
 
             Console.ReadKey();
