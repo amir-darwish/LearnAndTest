@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Logger\clsLogger.cs" />
     <Compile Include="MultithreadingProgram.cs" />
+    <Compile Include="Multithreading\clsDownload.cs" />
     <Compile Include="Order\clsEmailService.cs" />
     <Compile Include="Order\clsOrder.cs" />
     <Compile Include="Order\clsOrderEventArgs.cs" />
@@ -65,8 +66,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Multithreading\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
