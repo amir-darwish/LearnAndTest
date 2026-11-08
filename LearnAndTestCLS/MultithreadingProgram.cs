@@ -18,8 +18,9 @@ namespace LearnAndTestCLS
                 }
             }
             // Create thread 
-            Thread t = new Thread(() => Method(100));
+            Thread t = new Thread(() => Method(20));
             t.Start();
+            t.IsBackground = true;
 
             for (int i = 0; i < 10; i++)
             {
@@ -27,6 +28,8 @@ namespace LearnAndTestCLS
                 Thread.Sleep(400);
 
             }
+
+            Console.ReadKey();
         }
     }
 }
